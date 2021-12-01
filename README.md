@@ -8,6 +8,7 @@ In this assignment, I had to develop a P4 application – a memcached load balan
 I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
 The network is presented in the following figure: <br/>
 <br/>
+
 ![topology](./topology.jpg)
 <br/>
 ## The Goal
