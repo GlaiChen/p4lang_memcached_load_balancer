@@ -22,17 +22,17 @@ So, for example, a request from h1 to 10.0.0.1, with the key “key01” will go
 We assume that all the requests have keys of length of exactly 5 bytes and we should not expect or handle other types of requests. <br/>
 <br/>
 ## Running the project
-1. In your shell, go to the directory `/home/p4/tutorials/exercises/memcached`, and then run:<br/>
+1. In your shell, go to the directory `/home/p4/tutorials/exercises/memcached`, and then run: <br/>
    ```bash
    make
    ``` 
-   That `make` script should start the mininet environment and open the mininet shell.<br/>
-2. Run h1-h3 nodes with `xterm` command:<br/>
+   That `make` script should start the mininet environment and open the mininet shell. <br/>
+2. Run h1-h3 nodes with `xterm` command: <br/>
    ```bash
    xterm h1 h2 h3
    ```
    Now, you will notice 3 new terminal windows, named h1 to h3. <br/>
-3. In the terminal window of h2, type: 
+3. In the terminal window of h2, type: <br/>
    ```bash
    ./start_h2_server.sh
    ```
@@ -47,4 +47,4 @@ We assume that all the requests have keys of length of exactly 5 bytes and we sh
    ./send_memcached_get.sh 10.0.0.1 key01
    ``` 
    And the result is expected to be the value of key01 in h3. <br/>
-   Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above.<br/>
+   Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/>
