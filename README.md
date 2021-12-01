@@ -4,14 +4,12 @@
 # p4lang_memcached_load_balancer
 <br/>
 ## Introduction 
-<br/><br/>
-
+<br/>
 In this assignment, I had to develop a P4 application – a memcached load balancer. <br/>
 I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
 The network is presented in the following figure: 
 <br/>
-
-(./topology.jpg)
+<img href="/topology.jpg">
 <br/>
 ## The Goal
 Performing load balancing between the two memcached servers. <br/>
