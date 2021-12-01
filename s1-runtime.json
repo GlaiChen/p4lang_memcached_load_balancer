@@ -1,0 +1,129 @@
+{
+  "target": "bmv2",
+  "p4info": "build/memcached.p4.p4info.txt",
+  "bmv2_json": "build/memcached.json",
+  "table_entries": [
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "default_action": true,
+      "action_name": "MyIngress.drop",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.1.1", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:01:11",
+        "port": 1
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.2.2", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:02:00",
+        "port": 2
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.3.3", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:03:00",
+        "port": 3
+      }
+    },
+    {
+      "__comment__": "table for even and other key bytes",
+      "table": "MyIngress.memcached_exact",
+      "default_action": true,
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.2.2"
+      }
+    },
+    {
+      "__comment__": "table for memcached odd key of 1 in ASCII",   
+      "table": "MyIngress.memcached_exact",
+      "match": {
+        "hdr.memcached.key": 49
+      },
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.3.3"
+      }
+    },
+    {
+      "__comment__": "table for memcached odd key of 3 in ASCII",   
+      "table": "MyIngress.memcached_exact",
+      "match": {
+        "hdr.memcached.key": 51
+      },
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.3.3"
+      }
+    },
+    {
+      "__comment__": "table for memcached odd key of 5 in ASCII",   
+      "table": "MyIngress.memcached_exact",
+      "match": {
+        "hdr.memcached.key": 53
+      },
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.3.3"
+      }
+    },
+    {
+      "__comment__": "table for memcached odd key of 7 in ASCII",   
+      "table": "MyIngress.memcached_exact",
+      "match": {
+        "hdr.memcached.key": 55
+      },
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.3.3"
+      }
+    },
+    {
+      "__comment__": "table for memcached odd key of 9 in ASCII",
+      "table": "MyIngress.memcached_exact",  
+      "match": {
+        "hdr.memcached.key": 57
+      },
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.3.3"
+      }
+    },
+    {
+      "__comment__": "table for correcting the src ip addr for the connection between h1 ans s1 on it's way back",
+      "table": "MyIngress.correct_ipv4_src",
+      "default_action": true,
+      "action_name": "MyIngress.rewrite_ipv4_src",
+      "action_params": {
+        "srcAddr": "10.0.0.1"
+      }
+    },
+    {
+      "__comment__": "table for sending the packets to 10.0.1.1",
+      "table": "MyIngress.correct_ipv4_dst",
+      "default_action": true,
+      "action_name": "MyIngress.rewrite_ipv4_dst",
+      "action_params": {
+        "dstAddr": "10.0.1.1"
+      }
+    }
+  ]
+}
+
