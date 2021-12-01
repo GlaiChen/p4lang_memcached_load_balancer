@@ -7,7 +7,7 @@
 In this assignment, I had to develop a P4 application – a memcached load balancer. <br/>
 I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
 The network is presented in the following figure:
-
+<br/>
 ![topology](./topology.jpg)
 <br/>
 ## The Goal
@@ -31,21 +31,20 @@ We assume that all the requests have keys of length of exactly 5 bytes and we sh
    ```bash
    xterm h1 h2 h3
    ```
-   Now, you will notice 3 new terminal windows, named h1 to h3.<br/>
-3. In the terminal window of h2, type:<br/>
+   Now, you will notice 3 new terminal windows, named h1 to h3. <br/>
+3. In the terminal window of h2, type: 
    ```bash
    ./start_h2_server.sh
    ```
-   That will start the memcached server on h2 and add some entries.<br/>
-4. In the terminal window of h3, do the same thing:<br/>
+   That will start the memcached server on h2 and add some entries. <br/>
+4. In the terminal window of h3, do the same thing: <br/>
    ```bash
    ./start_h3_server.sh
    ```
-   That will also start the memcached server on h3 and add some entries.<br/>
-5. In the terminal window of h1, type:<br/>
+   That will also start the memcached server on h3 and add some entries. <br/>
+5. In the terminal window of h1, type: <br/>
    ```bash
    ./send_memcached_get.sh 10.0.0.1 key01
    ``` 
-   <br/>
    And the result is expected to be the value of key01 in h3. <br/>
    Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above.<br/>
