@@ -22,29 +22,30 @@ So, for example, a request from h1 to 10.0.0.1, with the key “key01” will go
 We assume that all the requests have keys of length of exactly 5 bytes and we should not expect or handle other types of requests. <br/>
 <br/>
 ## Running the project
-1. In your shell, go to the directory `/home/p4/tutorials/exercises/memcached`, and then run:
+1. In your shell, go to the directory `/home/p4/tutorials/exercises/memcached`, and then run:<br/>
    ```bash
    make
    ``` 
-   That `make` script should start the mininet environment and open the mininet shell.
-2. Run h1-h3 nodes with `xterm` command:
+   That `make` script should start the mininet environment and open the mininet shell.<br/>
+2. Run h1-h3 nodes with `xterm` command:<br/>
    ```bash
    xterm h1 h2 h3
    ```
-   Now, you will notice 3 new terminal windows, named h1 to h3.
-3. In the terminal window of h2, type:
+   Now, you will notice 3 new terminal windows, named h1 to h3.<br/>
+3. In the terminal window of h2, type:<br/>
    ```bash
    ./start_h2_server.sh
    ```
-   That will start the memcached server on h2 and add some entries.
-4. In the terminal window of h3, do the same thing:
+   That will start the memcached server on h2 and add some entries.<br/>
+4. In the terminal window of h3, do the same thing:<br/>
    ```bash
    ./start_h3_server.sh
    ```
-   That will also start the memcached server on h3 and add some entries.
-5. In the terminal window of h1, type:
+   That will also start the memcached server on h3 and add some entries.<br/>
+5. In the terminal window of h1, type:<br/>
    ```bash
    ./send_memcached_get.sh 10.0.0.1 key01
-   ```
+   ``` 
+   <br/>
    And the result is expected to be the value of key01 in h3. <br/>
    Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above.<br/>
