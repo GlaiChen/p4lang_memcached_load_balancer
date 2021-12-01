@@ -5,9 +5,10 @@
 <br/>
 ## Introduction 
 <br/>
+
 In this assignment, I had to develop a P4 application – a memcached load balancer. <br/>
 I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
-The network is presented in the following figure: <br/>
+The network is presented in the following figure: 
 <br/>
 
 ![topology](./topology.jpg)
@@ -28,7 +29,7 @@ We assume that all the requests have keys of length of exactly 5 bytes and we sh
    ```bash
    make
    ``` 
-   That `make` script should start the mininet environment and open the mininet shell. <br/>
+   That `make` script should start the mininet environment and open the mininet shell. <br/><br/>
 2. Run h1-h3 nodes with `xterm` command: <br/>
    ```bash
    xterm h1 h2 h3
