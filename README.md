@@ -60,7 +60,7 @@ https://github.com/p4lang/p4c
    B. http://www.deepness-lab.org/pubs/networking17_loadbalancing.pdf <br/>
 2. Mininet: <br/>
    A. http://mininet.org/walkthrough/  <br/>
-3. P4lang Tuturials: <br/>
+3. P4lang: <br/>
    A. https://github.com/p4lang/tutorials/ <br/>
    B. http://conferences.sigcomm.org/sigcomm/2018/files/slides/hda/paper_2.2.pdf <br/>
    C. https://opennetworking.org/wp-content/uploads/2020/12/P4_tutorial_01_basics.gslide.pdf <br/>
