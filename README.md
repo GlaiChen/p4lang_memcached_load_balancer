@@ -32,29 +32,60 @@ https://github.com/p4lang/p4c
    make
    ``` 
    That `make` script should start the mininet environment and open the mininet shell. <br/><br/>
-   <img src="/mininet.png"><br/><br/>
+   <img src="/examples/mininet.png"><br/><br/>
 2. Run h1-h3 nodes with `xterm` command: <br/><br/>
    ```bash
    xterm h1 h2 h3
    ```
    Now, you will notice 3 new terminal windows, named h1 to h3. <br/><br/>
-   <img src="/nodes.png"><br/><br/>
+   <img src="/examples/nodes.png"><br/><br/>
 3. In the terminal window of h2, type: <br/><br/>
    ```bash
    ./start_h2_server.sh
    ```
    That will start the memcached server on h2 and add some entries. <br/><br/>
+   <img src="/examples/node_h2.png"><br/><br/>
 4. In the terminal window of h3, do the same thing: <br/><br/>
    ```bash
    ./start_h3_server.sh
    ```
    That will also start the memcached server on h3 and add some entries. <br/><br/>
-5. In the terminal window of h1, type: <br/><br/>
+5. Before we start sending the UDP packets, open a new terminal window and open `wireshark`
+      ```bash
+   sudo wireshark
+   ```
+6. After the `wireshark` window will open, start capturing packets from s1-eth1, and a new window will open
+   <img src="/examples/capture_s1.png"><br/><br/>
+7. Now, in the terminal window of h1, type: <br/><br/>
    ```bash
    ./send_memcached_get.sh 10.0.0.1 key01
    ``` 
    And the result is expected to be the value of key01 in h3. <br/>
-   Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/>
+   <img src="/examples/send_key01.png"><br/><br/>
+8. If you go back to the `wireshark`s1-eth1 sniffing window, you will notice the packets you've just sent in the window of h1:
+   <img src="/send_key01_wireshark.png"><br/><br/>
+9. Now stop capturing s1-eth1, and start capture s1-eth3. 
+   Repeat step 7, with any odd key you like "xxxx1-xxxx9" and now you should see the packets in s1-eth3 as well:
+   <img src="/examples/send_key01_wireshark_eth3.png"><br/><br/>
+10. Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/><br/>
+    Repeat steps 7 && 9 with new terms:
+    - Start capturing s1-eth2 <br/>
+    - Send even keys (xxxx0-xxxx8) / other keys which aren't odd keys. <br/>
+    You should see in your `wireshark` sniffing window the following results: <br/><br/>
+    <img src="/examples/send_key02__other_wireshark_eth2.png"><br/><br/>
+11. In order to stop the Mininet, follow the following steps:
+   ```bash
+   make stop
+   make clean
+   ``` 
+   For your convinience, I have created simple bash script to run those 2 commands together: <br/>
+   ```bash
+   ./juststopit.sh
+   ```
+   If you would like to `make` again after stop && clean, you can just ran another simple bash script I have created for you: <br/>
+   ```bash
+   ./makeagain.sh
+   ```
    
 ## References
 1. More info about Memcached: <br/>
