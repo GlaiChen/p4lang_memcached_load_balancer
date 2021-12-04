@@ -82,18 +82,18 @@ https://github.com/p4lang/p4c
     You should see in your `wireshark` sniffing window the following results: <br/><br/>
     <img src="/examples/send_key02_other_wireshark_eth2.png"><br/><br/>
 11. In order to stop the Mininet, follow the following steps:
-   ```bash
-   make stop
-   make clean
-   ``` 
-   For your convinience, I have created simple bash script to run those 2 commands together: <br/>
-   ```bash
-   ./juststopit.sh
-   ```
-   If you would like to `make` again after ``make stop && make clean`` , you can just ran another simple bash script I have created for you: <br/>
-   ```bash
-   ./makeagain.sh
-   ```
+    ```bash
+    make stop
+    make clean
+    ``` 
+    For your convinience, I have created simple bash script to run those 2 commands together: <br/>
+    ```bash
+    ./juststopit.sh
+    ```
+    If you would like to `make` again after ``make stop && make clean`` , you can just ran another simple bash script I have created for you: <br/>
+    ```bash
+    ./makeagain.sh
+    ```
    
 ## References
 1. More info about Memcached: <br/>
