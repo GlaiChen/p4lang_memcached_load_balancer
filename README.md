@@ -1,6 +1,6 @@
 # "Advanced Topics in IP Networks" 
- M.Sc. course at the Reichman University <br/>
- Lecturers and advisors of the cours: <br/>
+ M.Sc. course at the Reichman University <br/><br/>
+ Lecturers and advisors of the course: <br/>
  Prof. Bremler-Barr Anat <br/>
  Dr. Harchol Yotam <br/>
 # p4lang_memcached_load_balancer
