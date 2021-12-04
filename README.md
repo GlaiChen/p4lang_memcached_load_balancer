@@ -32,11 +32,13 @@ https://github.com/p4lang/p4c
    make
    ``` 
    That `make` script should start the mininet environment and open the mininet shell. <br/><br/>
+   <img src="/mininet.png"><br/><br/>
 2. Run h1-h3 nodes with `xterm` command: <br/><br/>
    ```bash
    xterm h1 h2 h3
    ```
    Now, you will notice 3 new terminal windows, named h1 to h3. <br/><br/>
+   <img src="/nodes.png"><br/><br/>
 3. In the terminal window of h2, type: <br/><br/>
    ```bash
    ./start_h2_server.sh
