@@ -50,22 +50,22 @@ https://github.com/p4lang/p4c
    ./start_h3_server.sh
    ```
    That will also start the memcached server on h3 and add some entries. <br/><br/>
-5. Before we start sending the UDP packets, open a new terminal window and open `wireshark`
+5. Before we start sending the UDP packets, open a new terminal window and open `wireshark` <br/><br/>
       ```bash
    sudo wireshark
    ```
-6. After the `wireshark` window will open, start capturing packets from s1-eth1, and a new window will open
+6. After the `wireshark` window will open, start capturing packets from s1-eth1, and a new window will open <br/><br/>
    <img src="/examples/capture_s1.png"><br/><br/>
 7. Now, in the terminal window of h1, type: <br/><br/>
    ```bash
    ./send_memcached_get.sh 10.0.0.1 key01
    ``` 
-   And the result is expected to be the value of key01 in h3. <br/>
+   And the result is expected to be the value of key01 in h3. <br/><br/>
    <img src="/examples/send_key01.png"><br/><br/>
-8. If you go back to the `wireshark`s1-eth1 sniffing window, you will notice the packets you've just sent in the window of h1:
+8. If you go back to the `wireshark`s1-eth1 sniffing window, you will notice the packets you've just sent in the window of h1:  <br/><br/>
    <img src="/send_key01_wireshark.png"><br/><br/>
-9. Now stop capturing s1-eth1, and start capture s1-eth3. 
-   Repeat step 7, with any odd key you like "xxxx1-xxxx9" and now you should see the packets in s1-eth3 as well:
+9. Now stop capturing s1-eth1, and start capture s1-eth3. <br/>
+   Repeat step 7, with any odd key you like "xxxx1-xxxx9" and now you should see the packets in s1-eth3 as well:  <br/><br/>
    <img src="/examples/send_key01_wireshark_eth3.png"><br/><br/>
 10. Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/><br/>
     Repeat steps 7 && 9 with new terms:
