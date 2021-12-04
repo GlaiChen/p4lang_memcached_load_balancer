@@ -7,7 +7,8 @@
 
 ## Introduction 
 In this assignment, I had to develop a P4 application – a memcached load balancer. <br/>
-I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
+I was supposed to use the Mininet virtual network to simulate a network that contains <br/>
+two memcached servers and a client host. <br/> 
 The network is presented in the following figure: 
 <br/><br/>
 <img src="/topology.jpg"><br/>
@@ -15,13 +16,17 @@ The network is presented in the following figure:
 ## The Goal
 Performing load balancing between the two memcached servers. <br/>
 The client h1 (10.0.1.1) sends memcached UDP requests to its default gateway s1 (10.0.0.1). <br/> 
-The switch flow table should contain rules that direct the memcached requests to one of the memcached servers h2, h3 (10.0.2.2, 10.0.3.3), each one contains a different set of keys and values. <br/>
-In this assignment I had to write a P4 code to direct the incoming memcached requests packets to one of the servers based on the requested key in the UDP packet. <br/>
+The switch flow table should contain rules that direct the memcached requests to one of the <br/>
+memcached servers h2, h3 (10.0.2.2, 10.0.3.3), each one contains a different set of keys and values. <br/>
+In this assignment I had to write a P4 code to direct the incoming memcached requests packets <br/>
+to one of the servers based on the requested key in the UDP packet. <br/>
 Specifically, I had to apply the following load balancing policy:  <br/>
 Given a key (that we define to always be of length 5 bytes), check the last character of the key. <br/>
-If it is an even digit, send the request to h2. If it is an odd digit, send it to h3. If it is not a digit, send it to h2. <br/>
-So, for example, a request from h1 to 10.0.0.1, with the key “key01” will go to h3, while requests with the keys “key02” or “other” will go to h2. <br/>
-We assume that all the requests have keys of length of exactly 5 bytes and we should not expect or handle other types of requests. <br/>
+If it is an even digit, send the request to h2. If it is an odd digit, send it to h3. <br/>
+If it is not a digit, send it to h2. <br/><br/>
+So, for example, a request from h1 to 10.0.0.1, with the key “key01” will go to h3, <br/>
+while requests with the keys “key02” or “other” will go to h2. <br/>
+We assume that all the requests have keys of length of exactly 5 bytes and we should not <br/> expect or handle other types of requests. <br/>
 <br/>
 ## Installing p4c compiler
 p4c is a reference compiler for the P4 programming language. 
@@ -70,7 +75,7 @@ https://github.com/p4lang/p4c
 9. Now stop capturing s1-eth1, and start capturing s1-eth3. <br/>
    Repeat step 7, with any odd key you like "xxxx1-xxxx9" and now you should see the packets in s1-eth3 as well:  <br/><br/>
    <img src="/examples/send_key01_wireshark_eth3.png"><br/><br/>
-10. Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/>
+10. Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, <br/>based on the policy above. <br/>
     Repeat steps 7 && 9 with new terms:
     - Start capturing s1-eth2 <br/>
     - Send even keys (xxxx0-xxxx8) / other keys which aren't odd keys. <br/>
