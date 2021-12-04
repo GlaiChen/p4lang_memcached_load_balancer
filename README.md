@@ -9,7 +9,7 @@ In this assignment, I had to develop a P4 application – a memcached load balan
 I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
 The network is presented in the following figure: 
 <br/>
-<img src="/topology.jpg"><br/>
+
 ## The Goal
 Performing load balancing between the two memcached servers. <br/>
 The client h1 (10.0.1.1) sends memcached UDP requests to its default gateway s1 (10.0.0.1). <br/> 
