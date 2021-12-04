@@ -82,7 +82,7 @@ https://github.com/p4lang/p4c
    ```bash
    ./juststopit.sh
    ```
-   If you would like to `make` again after stop && clean, you can just ran another simple bash script I have created for you: <br/>
+   If you would like to `make` again after ``make stop && make clean``, you can just ran another simple bash script I have created for you: <br/>
    ```bash
    ./makeagain.sh
    ```
