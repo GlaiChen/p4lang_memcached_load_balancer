@@ -62,17 +62,17 @@ https://github.com/p4lang/p4c
    ``` 
    And the result is expected to be the value of key01 in h3. <br/><br/>
    <img src="/examples/send_key01.png"><br/><br/>
-8. If you go back to the `wireshark`s1-eth1 sniffing window, you will notice the packets you've just sent in the window of h1:  <br/><br/>
-   <img src="/send_key01_wireshark.png"><br/><br/>
-9. Now stop capturing s1-eth1, and start capture s1-eth3. <br/>
+8. If you go back to the `wireshark` s1-eth1 sniffing window, you will notice the packets you've just sent in the window of h1:  <br/><br/>
+   <img src="/examples/send_key01_wireshark.png"><br/><br/>
+9. Now stop capturing s1-eth1, and start capturing s1-eth3. <br/>
    Repeat step 7, with any odd key you like "xxxx1-xxxx9" and now you should see the packets in s1-eth3 as well:  <br/><br/>
    <img src="/examples/send_key01_wireshark_eth3.png"><br/><br/>
-10. Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/><br/>
+10. Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/>
     Repeat steps 7 && 9 with new terms:
     - Start capturing s1-eth2 <br/>
     - Send even keys (xxxx0-xxxx8) / other keys which aren't odd keys. <br/>
     You should see in your `wireshark` sniffing window the following results: <br/><br/>
-    <img src="/examples/send_key02__other_wireshark_eth2.png"><br/><br/>
+    <img src="/examples/send_key02_other_wireshark_eth2.png"><br/><br/>
 11. In order to stop the Mininet, follow the following steps:
    ```bash
    make stop
