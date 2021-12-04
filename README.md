@@ -1,15 +1,12 @@
 # "Advanced Topics in IP Networks" 
  M.Sc. course at the Reichman University <br/>
-<br/>
 # p4lang_memcached_load_balancer
-<br/>
 
 ## Introduction 
-<br/>
 In this assignment, I had to develop a P4 application – a memcached load balancer. <br/>
 I was supposed to use the Mininet virtual network to simulate a network that contains two memcached servers and a client host. <br/> 
 The network is presented in the following figure: 
-<br/>
+<br/><br/>
 <img src="/topology.jpg"><br/>
 
 ## The Goal
@@ -23,6 +20,12 @@ If it is an even digit, send the request to h2. If it is an odd digit, send it t
 So, for example, a request from h1 to 10.0.0.1, with the key “key01” will go to h3, while requests with the keys “key02” or “other” will go to h2. <br/>
 We assume that all the requests have keys of length of exactly 5 bytes and we should not expect or handle other types of requests. <br/>
 <br/>
+## Installing p4c compiler
+p4c is a reference compiler for the P4 programming language. 
+It supports both P4-14 and P4-16. My project is in the P4-16 language. <br/>
+Please follow the instructions at the `p4lang/p4c` repository at the followd link: <br/>
+https://github.com/p4lang/p4c
+
 ## Running the project
 1. In your shell, go to the directory `/home/p4/tutorials/exercises/memcached`, and then run: <br/><br/>
    ```bash
@@ -51,3 +54,15 @@ We assume that all the requests have keys of length of exactly 5 bytes and we sh
    And the result is expected to be the value of key01 in h3. <br/>
    Likewise, requests for other (existing) keys should yield the corresponding values from the corresponding server, based on the policy above. <br/>
    
+## References
+1. More info about Memcached: <br/>
+   A. https://memcached.org/ <br/>
+   B. http://www.deepness-lab.org/pubs/networking17_loadbalancing.pdf <br/>
+2. Mininet: <br/>
+   A. http://mininet.org/walkthrough/  <br/>
+3. P4lang Tuturials: <br/>
+   A. https://github.com/p4lang/tutorials/ <br/>
+   B. http://conferences.sigcomm.org/sigcomm/2018/files/slides/hda/paper_2.2.pdf <br/>
+   C. https://opennetworking.org/wp-content/uploads/2020/12/P4_tutorial_01_basics.gslide.pdf <br/>
+   D. https://p4.org/p4-spec/docs/P4-16-v1.0.0-spec.pdf <br/>
+   E. https://p4.org/p4-spec/docs/P4-16-v1.0.0-spec.html <br/>
