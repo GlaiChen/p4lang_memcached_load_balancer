@@ -29,7 +29,7 @@ while requests with the keys “key02” or “other” will go to h2. <br/>
 We assume that all the requests have keys of length of exactly 5 bytes and we should not <br/> expect or handle other types of requests. <br/>
 <br/>
 ## Installing p4c compiler
-p4c is a reference compiler for the P4 programming language. 
+p4c is a reference compiler for the P4 programming language. <br/>
 It supports both P4-14 and P4-16. My project is in the P4-16 language. <br/>
 Please follow the instructions at the `p4lang/p4c` repository at the followd link: <br/>
 https://github.com/p4lang/p4c
